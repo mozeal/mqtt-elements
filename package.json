@@ -1,7 +1,7 @@
 {
-  "name": "mqtt-elements",
-  "version": "0.0.6-beta",
-  "description": "Polymer elements for MQTT",
+  "name": "mqtt-elements-2",
+  "version": "1.9.0",
+  "description": "Polymer 2.0 elements for MQTT",
   "main": "mqtt-elements.html",
   "directories": {
     "test": "tests"
@@ -21,9 +21,9 @@
   "author": "Sandro Kock <sandro.kock@gmail.com> (https://github.com/sandro-k)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mqttjs/mqtt-elements/issues"
+    "url": "https://github.com/mozeal/mqtt-elements/issues"
   },
-  "homepage": "https://github.com/mqttjs/mqtt-elements#readme",
+  "homepage": "https://github.com/mozeal/mqtt-elements#readme",
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-contrib-connect": "^0.10.1",
