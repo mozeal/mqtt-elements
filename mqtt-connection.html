@@ -354,7 +354,8 @@ element. And manually connect if `auto` is set to `false` with `connect`
           // actually send the `publish` message to the MQTT broker
           this.client.publish(topic, message, opts, opt_callback);
         } else {
-          var nop = function () {};
+                    var nop = function () {
+                    };
           var queuePacket = {
             cb: opt_callback || nop,
             packet: {
@@ -598,6 +599,10 @@ element. And manually connect if `auto` is set to `false` with `connect`
       _publishElementRegistered: function (event) {
         this._addElementAndRegister("publishers", event.target);
       },
+
+            _addPublishElement: function ( pub ) {
+                this._addElementAndRegister("publishers", pub );
+            },
 
       /**
        * Removes and <mqtt-publish> element

@@ -72,6 +72,14 @@ publishes a retained message to the topic "foo/bar".
         },
 
         /**
+                 * The `mqtt-connection` that the element is registered to.
+                 */
+                connection: {
+                    type: Object,
+                    reflectToAttribute: true
+                },
+
+                /**
          * The payload that is send to the topic
          */
         payload: {
@@ -122,6 +130,11 @@ publishes a retained message to the topic "foo/bar".
        * Element to set the topic, payload, QoS an retained flag for the MQTT message.
        */
       publish: function () {
+                if( !this._parentConnection ) {
+                    if( this.connection ) {
+                        this.connection._addPublishElement(this);
+                    }
+                }
         if(this.topic && this.topic.length > 0 && this.payload && this.payload.length > 0 && this._parentConnection) {
           this._setPublished(false);
           this._parentConnection.publish(this.topic, this.payload, this.qos, this.retained, this._handelPublicationPublished.bind(this));

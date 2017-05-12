@@ -150,7 +150,7 @@ be bound to `lastMessage`. `subscribed` indicates whether the subscription is su
         /**
          * The `mqtt-connection` that the element is registered to.
          */
-        _parent: {
+                connection: {
           type: Object
         },
 
@@ -190,9 +190,6 @@ be bound to `lastMessage`. `subscribed` indicates whether the subscription is su
 
       behaviors: [MqttElements.MqttSubscriptionRegestrationBehaviour],
 
-      attached: function() {
-          if( this._parent )
-            this._parent._addSubscriptionElement(this);
 
       /**
        * A change listener for `numberOfMessages` to validate the input
@@ -219,7 +216,8 @@ be bound to `lastMessage`. `subscribed` indicates whether the subscription is su
             // don't do anything user has to supply a payloadParseFunction
             break;
           case "Unknown":
-            this.payloadParseFunction = function () {};
+                        this.payloadParseFunction = function () {
+                        };
             break;
           case "String":
             this.payloadParseFunction = String.fromCharCode;

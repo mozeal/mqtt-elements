@@ -1,4 +1,3 @@
-
 <link rel="import" href="../polymer/polymer.html">
 
 <!--
@@ -39,7 +38,12 @@ Enables a custom element to be included as an `mqtt-subscription` in an `mqtt-co
       attached: function() {
         // Note: the `mqtt-connection` that this element belongs to will set this
         // element's _parentConnection property when handling this event.
+                if (this.connection) {
+                    this.connection._addPublishElement(this);
+                }
+                else {
         this.fire('mqtt-publish-register', {topic: this.topic, qos: this.qos});
+                }
       },
 
       detached: function() {
